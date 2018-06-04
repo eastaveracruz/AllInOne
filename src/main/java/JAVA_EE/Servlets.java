@@ -38,6 +38,13 @@ import java.io.PrintWriter;
                 </servlet-mapping>
 
             </web-app>
+
+
+    Создание war архива
+        в парке, содержимое которое будет архивироваться набираем команду
+            jar -cfv myWar.war *
+        Ложим архив в webapps
+        Томкат при запуске распакует его и положит в папку с именем архива
   * */
 public class Servlets extends HttpServlet {
 
