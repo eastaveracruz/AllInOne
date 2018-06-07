@@ -1,3 +1,5 @@
+package servlets;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -9,7 +11,7 @@ import java.io.IOException;
 
 // Жизненный цикл сервлета
 
-@WebServlet ("/LifeCicle")
+@WebServlet ("/servlets.LifeCicle")
 public class LifeCicle extends HttpServlet {
 
     // Метод вызывается каждый раз при инициализации.
