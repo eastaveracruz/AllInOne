@@ -18,7 +18,7 @@ public class BLOB {
         Statement stat = connection.createStatement()){
 
             stat.executeUpdate("drop table Books");
-            stat.executeUpdate("create table Books (id mediumint auto_increment primary key not null , name varchar(30) not null, img BLOB);");
+            stat.executeUpdate("create table Books (id mediumint auto_increment primary key not null , name varchar(30) not null, img MEDIUMBLOB);");
 
             BufferedImage bufferedImage = ImageIO.read(new File("367.jpg"));
             Blob blob = connection.createBlob();
@@ -31,6 +31,14 @@ public class BLOB {
             statement.setBlob(2, blob);
             statement.execute();
 
+
+            ResultSet resultSet = stat.executeQuery("select * from Books where name = 'Perecrestki Sumerek'");
+            while (resultSet.next()){
+                Blob blob1 = resultSet.getBlob("img");
+                BufferedImage bufferedImage1 = ImageIO.read(blob1.getBinaryStream());
+                File outPutImg = new File("img.png");
+                ImageIO.write(bufferedImage1, "png", outPutImg);
+            }
 
         }
     }
